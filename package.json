@@ -1,0 +1,27 @@
+{
+  "name": "challengech5",
+  "version": "1.0.0",
+  "description": "Binar Academy Full Stack Web Development Challenge Chapter 5 - Migrating to Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvinlaurente/binar-challengech5.git"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "Alvin Laurent Ertanto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvinlaurente/binar-challengech5/issues"
+  },
+  "homepage": "https://github.com/alvinlaurente/binar-challengech5#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
