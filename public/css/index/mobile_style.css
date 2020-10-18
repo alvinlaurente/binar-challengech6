@@ -8,8 +8,6 @@ html {
   text-decoration: none;
 }
 
-
-
 /* Jumbotron */
 .jumbotron {
   /* Multiple background with no-repeat */
@@ -236,7 +234,6 @@ html {
 .features .step:last-child .line {
   border-left: 3px solid white;
   z-index: -1;
-  /* behind the circle to completely hide */
 }
 
 .features .step .content {
@@ -261,13 +258,13 @@ html {
 }
 
 .features .step.empty .circle {
-  visibility: hidden;
   /* Hidden */
+  visibility: hidden;
 }
 
 .features .step.empty .line {
-  top: 0;
   /* Hidden */
+  top: 0;
   height: 150%;
 }
 
@@ -393,8 +390,6 @@ html {
 .newsletter {
   background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(10%, transparent), color-stop(90%, transparent), to(black)), url(/images/index/newsletter-bg.jpg);
   background-image: linear-gradient(black 0%, transparent 10%, transparent 90%, black 100%), url(/images/index/newsletter-bg.jpg);
-  text-align: left;
-  /* Newsletter Form */
 }
 
 .newsletter h3 {
@@ -414,6 +409,7 @@ html {
   text-align: justify;
 }
 
+/* Newsletter Form */
 .newsletter form {
   position: relative;
 }
@@ -427,7 +423,6 @@ html {
 .newsletter form p {
   color: grey;
   position: absolute;
-  /* Relative to form */
   font-size: 10px;
   left: 16px;
   top: 1px;
@@ -457,9 +452,8 @@ html {
 /* Navigation */
 .navigation {
   background-color: black;
-  height: 40vh;
+  height: 30vh;
   padding: 0;
-  /* Footer */
 }
 
 .navigation a {
@@ -635,16 +629,17 @@ html {
   border-top: 1px solid grey;
 }
 
-.navigation .footer p {
+/* Footer */
+.footer p {
   font-size: 14px;
   color: grey;
 }
 
-.navigation .footer .col-lg-6 {
+.footer .col-lg-6 {
   text-align: center;
 }
 
-.navigation .footer a {
+.footer a {
   margin: 0;
 }
 /*# sourceMappingURL=mobile_style.css.map */
