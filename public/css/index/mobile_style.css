@@ -60,8 +60,8 @@ html {
 
 /* Play Now content */
 .playnow {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), to(black)), url(assets/main-bg.jpg);
-  background-image: linear-gradient(to bottom, transparent 70%, black 100%), url(assets/main-bg.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), to(black)), url(/images/index/main-bg.jpg);
+  background-image: linear-gradient(to bottom, transparent 70%, black 100%), url(/images/index/main-bg.jpg);
 }
 
 .playnow .container h1 {
@@ -152,8 +152,8 @@ html {
 
 /* Game Option content */
 .gameoption {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(10%, transparent), color-stop(90%, transparent), to(black)), url(assets/the-games-bg.jpg);
-  background-image: linear-gradient(black 0%, transparent 10%, transparent 90%, black 100%), url(assets/the-games-bg.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(10%, transparent), color-stop(90%, transparent), to(black)), url(/images/index/the-games-bg.jpg);
+  background-image: linear-gradient(black 0%, transparent 10%, transparent 90%, black 100%), url(/images/index/the-games-bg.jpg);
 }
 
 .gameoption .container {
@@ -204,8 +204,8 @@ html {
 
 /* Features content */
 .features {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(50%, transparent), to(black)), url(assets/features.jpg);
-  background-image: linear-gradient(black 0%, transparent 50%, black 100%), url(assets/features.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(50%, transparent), to(black)), url(/images/index/features.jpg);
+  background-image: linear-gradient(black 0%, transparent 50%, black 100%), url(/images/index/features.jpg);
   background-position: left;
 }
 
@@ -310,8 +310,8 @@ html {
 
 /* System Requirements content */
 .sysreq {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(50%, transparent), to(black)), url(assets/requirements.png);
-  background-image: linear-gradient(black 0%, transparent 50%, black 100%), url(assets/requirements.png);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(50%, transparent), to(black)), url(/images/index/requirements.png);
+  background-image: linear-gradient(black 0%, transparent 50%, black 100%), url(/images/index/requirements.png);
   padding: 10vh 0px;
 }
 
@@ -345,8 +345,8 @@ html {
 
 /* Top Scores content */
 .topscores {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(50%, rgba(0, 0, 0, 0.8)), to(black)), url(assets/top-score-bg.png);
-  background-image: linear-gradient(black 0%, rgba(0, 0, 0, 0.8) 50%, black 100%), url(assets/top-score-bg.png);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(50%, rgba(0, 0, 0, 0.8)), to(black)), url(/images/index/top-score-bg.png);
+  background-image: linear-gradient(black 0%, rgba(0, 0, 0, 0.8) 50%, black 100%), url(/images/index/top-score-bg.png);
 }
 
 .topscores .topscoresleft {
@@ -428,8 +428,8 @@ html {
 
 /* Newsletter content */
 .newsletter {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(10%, transparent), color-stop(90%, transparent), to(black)), url(assets/newsletter-bg.jpg);
-  background-image: linear-gradient(black 0%, transparent 10%, transparent 90%, black 100%), url(assets/newsletter-bg.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(10%, transparent), color-stop(90%, transparent), to(black)), url(/images/index/newsletter-bg.jpg);
+  background-image: linear-gradient(black 0%, transparent 10%, transparent 90%, black 100%), url(/images/index/newsletter-bg.jpg);
   text-align: left;
   /* Newsletter Form */
 }
