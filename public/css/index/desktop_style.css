@@ -1,0 +1,128 @@
+/* Desktop Version */
+
+@media (min-width: 992px) {
+  /* Navbar */
+  .customnavbar {
+    background-color: rgba(0, 0, 0, 0.3) !important; /* Transparent navbar on Desktop */
+  }
+
+  .customnavbar .navbar-center {
+    margin-left: 20px;
+  }
+
+  .customnavbar a:hover {
+    background: rgba(0, 0, 0, 0.3); /* Add background transparent transition */
+  }
+
+  /* Jumbotron Play Now content */
+  .playnow .container h1 {
+    font-size: 10vh;
+  }
+
+  .playnow .container h2 {
+    font-size: 3vh;
+  }
+
+  .playnow .container a {
+    font-size: 2vh;
+  }
+
+  .playnow .to-gameoption h3 {
+    font-size: 2vh;
+  }
+
+  /* Game Option content */
+  .gameoption h1 {
+    font-size: 4vw;
+  }
+
+  .gameoption .col-lg-8 {
+    padding-top: 5vh; /* Align Carousel image with 'The games' */
+  }
+
+  /* Features content */
+  .features .col-md-6 {
+    margin-top: 10vh;
+  }
+
+  .features h3 {
+    font-size: 2vw;
+  }
+
+  .features h1 {
+    font-size: 6.5vw;
+  }
+
+  .features h2 {
+    font-size: 2vw;
+  }
+
+  .features p {
+    font-size: 1.5vw;
+  }
+
+  /* System Requirements content */
+  .sysreq h5 {
+    font-size: 1em;
+  }
+
+  .sysreq h1 {
+    font-size: 6em;
+  }
+
+  .sysreq h2 {
+    font-size: 1.25em;
+  }
+
+  .sysreq p {
+    font-size: 1em;
+  }
+
+  /* System Requirements content */
+  .sysreq h5 {
+    font-size: 1em;
+  }
+
+  .sysreq h1 {
+    font-size: 3em;
+  }
+
+  .sysreq h2 {
+    font-size: 1.25em;
+  }
+
+  .sysreq p {
+    font-size: 1em;
+  }
+
+  /* Top Scores content */
+  .topscores .container {
+    position: relative;
+  }
+
+  .topscores .topscoresleft {
+    position: absolute; /* Relative to .container */
+    top: 150px;
+    width: 350px;
+    text-align: left;
+  }
+
+  /* Newsletter content */
+  .newsletter h1 {
+    font-size: 44px;
+  }
+
+  /* Navigation */
+  .navigation {
+    height: 20vh;
+  }
+
+  /* Footer */
+  .footer .col-lg-6 {
+    text-align: right !important;
+  }
+
+  .footer .col-lg-4 {
+    text-align: left;
+  }
+}
