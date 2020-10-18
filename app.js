@@ -1,4 +1,6 @@
 const express = require('express');
+const morgan = require('morgan');
+const routes = require('./routes/routes');
 
 const app = express();
 const port = 3000;
@@ -11,26 +13,16 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// Static files
+// Logger Middleware
+app.use(morgan('tiny'));
+
+// Static files Middleware
 app.use(express.static('./public'));
 
-// Homepage router
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
-});
+// Routes
+app.use(routes);
 
-app.get('/index', (req, res) => {
-  res.redirect('/');
-});
-
-app.get('/home', (req, res) => {
-  res.redirect('/');
-});
-
-app.get('/rockpaperscissor', (req, res) => {
-  res.render('rockpaperscissor', { title: 'Rock Paper Scissor' });
-});
-
+// 404 Page
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
