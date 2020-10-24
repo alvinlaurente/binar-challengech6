@@ -1,154 +1,156 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-useless-constructor */
+/* eslint-disable eqeqeq */
 /* eslint-disable no-plusplus */
-/* eslint-disable max-len */
-/* eslint-disable no-return-assign */
-// Menangkap pilihan dari komputer
-function getCompChoice() {
-  const comp = Math.random();
-  if (comp < (1 / 3)) return 'rock';
-  if (comp >= (1 / 3) && comp < (2 / 3)) return 'paper';
-  return 'scissor';
-}
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-unused-expressions */
+// OOP Version
 
-// Rules permainan
-let result = null;
-// eslint-disable-next-line consistent-return
-function getResult(comp, player) {
-  if (player === comp) return result = 'DRAW';
-  if (player === 'rock') return (comp === 'scissor') ? result = 'PLAYER 1 WIN' : result = 'COM WIN';
-  if (player === 'paper') return (comp === 'rock') ? result = 'PLAYER 1 WIN' : result = 'COM WIN';
-  if (player === 'scissor') return (comp === 'paper') ? result = 'PLAYER 1 WIN' : result = 'COM WIN';
-}
+class Game {
+  constructor(player, comp) {
+    this.player = player;
+    this.comp = comp;
+    this.result = null;
+    this.round = 1;
 
-/* Game dimulai */
-/* DOM Selector */
-const versus = document.querySelector('.versus h1');
-const resultClass = document.querySelector('.versus div div');
-const textResult = document.querySelector('.versus h5');
-const compBox = document.querySelectorAll('.greyBox.compImage');
-const playerBox = document.querySelectorAll('.greyBox.playerImage');
+    // DOM Selector
+    this.versus = document.querySelector('.versus h1');
+    this.resultClass = document.querySelector('.versus div div');
+    this.textResult = document.querySelector('.versus h5');
+    this.compBox = document.querySelectorAll('.greyBox.compImage');
+    this.playerBox = document.querySelectorAll('.greyBox.playerImage');
+  }
 
-/* Beri delay untuk membuat komputer seolah berpikir dahulu */
+  getResult(player, comp) {
+    if (player.choice === comp.choice) this.result = 'DRAW';
+    if (player.choice === 'rock' && comp.choice === 'scissor') { this.result = 'PLAYER 1 WIN'; }
+    if (player.choice === 'rock' && comp.choice === 'paper') { this.result = 'COM WIN'; }
+    if (player.choice === 'paper' && comp.choice === 'rock') { this.result = 'PLAYER 1 WIN'; }
+    if (player.choice === 'paper' && comp.choice === 'scissor') { this.result = 'COM WIN'; }
+    if (player.choice === 'scissor' && comp.choice === 'paper') { this.result = 'PLAYER 1 WIN'; }
+    if (player.choice === 'scissor' && comp.choice === 'rock') { this.result = 'COM WIN'; }
+  }
 
-function wait() {
-  const start = new Date().getTime();
-  let i = 0;
+  setPlayerGreyBox(player) {
+    if (player.choice === 'rock') { this.playerBox[0].style.backgroundColor = '#c4c4c4'; } else if (player.choice === 'paper') { this.playerBox[1].style.backgroundColor = '#c4c4c4'; } else this.playerBox[2].style.backgroundColor = '#c4c4c4';
+  }
 
-  setInterval(() => {
-    /* Jalankan fungsi dalam waktu 1s */
-    if (new Date().getTime() - start >= 1000) {
-      // eslint-disable-next-line no-unused-expressions
-      clearInterval;
-      return;
-    }
+  setCompGreyBox(comp) {
+    if (comp.choice === 'rock') { this.compBox[0].style.backgroundColor = '#c4c4c4'; } else if (comp.choice === 'paper') { this.compBox[1].style.backgroundColor = '#c4c4c4'; } else this.compBox[2].style.backgroundColor = '#c4c4c4';
+  }
 
-    /* Komputer seolah-olah berpikir dengan bantuan greyBox */
-    compBox[i++].style.backgroundColor = '#c4c4c4';
-    if (i === compBox.length) i = 0;
+  showResult(player, comp) {
+    this.versus.style.color = '#9c835f';
+    this.resultClass.classList.add('result');
+    this.textResult.innerHTML = this.result;
+    this.textResult.style.backgroundColor = '#4c9654';
+    if (this.result === 'DRAW') { this.textResult.style.backgroundColor = '#225c0e'; }
+    this.setCompGreyBox(comp);
+  }
 
-    /* Hilangkan kembali class result saat wait () */
-    resultClass.classList.remove('result');
+  compThink() {
+    const start = new Date().getTime();
+    let i = 0;
 
-    /* Tampilkan kembali tulisan VS saat wait () */
-    versus.style.color = 'rgb(189,48,46)';
-  }, 50);
-
-  setTimeout(() => {
     setInterval(() => {
-      if (new Date().getTime() - start >= 1200) {
-        // eslint-disable-next-line no-unused-expressions
+      if (new Date().getTime() - start >= 1000) {
         clearInterval;
         return;
       }
-
-      /* Handling agar Menyamarkan greyBox dengan bgColor supaya tidak semuanya memiliki greyBox berwarna abu */
-      compBox[i++].style.backgroundColor = '#9c835f';
-      if (i === compBox.length) i = 0;
+      /* Comp pretends to think before play */
+      this.compBox[i++].style.backgroundColor = '#c4c4c4';
+      if (i == this.compBox.length) i = 0;
     }, 50);
-  }, 50);
+
+    setTimeout(() => {
+      setInterval(() => {
+        if (new Date().getTime() - start >= 1200) {
+          clearInterval;
+          return;
+        }
+        // Reselect the DOM - It won't work with this.compBox
+        const compBox = document.querySelectorAll('.greyBox.compImage');
+        compBox[i++].style.backgroundColor = '#9c835f';
+        if (i == compBox.length) i = 0;
+      }, 50);
+    }, 50);
+  }
+
+  startGame(player, comp) {
+    comp.getCompChoice();
+    this.getResult(player, comp);
+    this.setPlayerGreyBox(player);
+
+    // Make comp pretend to think first
+    this.compThink();
+
+    // Show the result - execute after compThink()
+    setTimeout(() => {
+      this.showResult(player, comp);
+    }, 1200);
+
+    this.round++;
+  }
+
+  refresh() {
+    this.textResult.innerHTML = '';
+    this.resultClass.classList.remove('result');
+    this.versus.style.color = 'rgb(189,48,46)';
+    this.result = null;
+
+    for (let i = 0; i < this.compBox.length; i++) {
+      this.playerBox[i].style.backgroundColor = '#9c835f';
+      this.compBox[i].style.backgroundColor = '#9c835f';
+    }
+  }
 }
 
-/* Menangkap pilihan pemain */
-const player = document.querySelectorAll('.contentImage .player');
-player.forEach((choice) => {
-  choice.addEventListener('click', () => {
-    /* Samarkan seluruh greyBox pada sisi player saat game dijalankan */
-    for (let i = 0; i < playerBox.length; i++) {
-      playerBox[i].style.backgroundColor = '#9c835f';
-    }
+class Player {
+  constructor() {
+    this.choice = null;
+  }
 
-    /* Eventlistener hanya dikerjakan apabila result masih dalam kondisi null */
-    if (result === null) {
-      /* Tangkap pilihan komputer */
-      const compChoice = getCompChoice();
+  getPlayerChoice(choice) {
+    this.choice = choice;
+  }
+}
 
-      /* Tangkap pilihan pemain */
-      const playerChoice = choice.className.substr(7, 7);
+class Comp extends Player {
+  constructor() {
+    super();
+  }
 
-      /* Jalankan Rules permainan untuk mendapatkan hasil */
-      result = getResult(compChoice, playerChoice);
+  getCompChoice() {
+    const choice = Math.random();
+    if (choice <= 1 / 3) this.choice = 'rock';
+    if (choice > 1 / 3 && choice <= 2 / 3) this.choice = 'paper';
+    if (choice > 2 / 3) this.choice = 'scissor';
+  }
+}
 
-      /* Berikan greyBox pada pilihan pemain */
-      if (playerChoice === 'rock') {
-        playerBox[0].style.backgroundColor = '#c4c4c4';
-      } else if (playerChoice === 'paper') {
-        playerBox[1].style.backgroundColor = '#c4c4c4';
-      } else {
-        playerBox[2].style.backgroundColor = '#c4c4c4';
-      }
+// Initialization of objects
+const p1 = new Player();
+const cpu = new Comp();
+const game = new Game(p1, cpu);
 
-      /* Jalankan fungsi wait agar komputer terlihat berpikir dahulu */
-      wait();
+// Event Listener if player side click any of the player images
+document.querySelectorAll('.contentImage .player').forEach((playerimg) => {
+  playerimg.addEventListener('click', () => {
+    // Game can only be played if there's no winner result (null)
+    if (!game.result) {
+      // Get player choice (from the second class of each img), parse with substr
+      const playerChoice = playerimg.className.substr(7, 7);
 
-      /* Jalankan seluruh perintah dibawah setelah fungsi wait selesai dijalankan */
-      setTimeout(() => {
-        /* Samarkan tulisan VS dengan background saat hasil ditampilkan */
-        versus.style.color = '#9c835f';
+      // Store player choice
+      p1.getPlayerChoice(playerChoice);
 
-        /* Tampilkan class result */
-        resultClass.classList.add('result');
-
-        /* Tampilkan hasil dalam class result (kotak hijau) */
-        textResult.innerHTML = result;
-        if (result === 'DRAW') {
-          textResult.style.backgroundColor = '#225c0e';
-        } else {
-          textResult.style.backgroundColor = '#4c9654';
-        }
-
-        /* Berikan greyBox pada comp choice */
-        if (compChoice === 'rock') {
-          compBox[0].style.backgroundColor = '#c4c4c4';
-        } else if (compChoice === 'paper') {
-          compBox[1].style.backgroundColor = '#c4c4c4';
-        } else {
-          compBox[2].style.backgroundColor = '#c4c4c4';
-        }
-      }, 1200);
-    } else {
-      // eslint-disable-next-line no-alert
-      alert('Silahkan tekan logo refresh terlebih dahulu!');
-    }
+      // Start the game
+      game.startGame(p1, cpu);
+    } else alert('Please reset the game first.');
   });
 });
 
-/* Reset tampilan game dengan tombol refresh */
-const reset = document.querySelector('.refresh');
-reset.addEventListener('click', () => {
-  /* Hapus tulisan hasil dalam result */
-  textResult.innerHTML = '';
-
-  /* Hilangkan kembali class result */
-  resultClass.classList.remove('result');
-
-  /* Hilangkan kembali seluruh greyBox */
-  for (let i = 0; i < compBox.length; i++) {
-    playerBox[i].style.backgroundColor = '#9c835f';
-    compBox[i].style.backgroundColor = '#9c835f';
-  }
-
-  /* Tampilkan kembali tulisan VS */
-  versus.style.color = 'rgb(189,48,46)';
-
-  /* Reset kembali result menjadi null agar dapat melakukan permainan kembali */
-  result = null;
-});
+// Refresh listener
+document
+  .querySelector('.refresh')
+  .addEventListener('click', () => game.refresh());
