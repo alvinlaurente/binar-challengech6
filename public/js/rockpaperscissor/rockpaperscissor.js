@@ -76,6 +76,18 @@ class Game {
     }, 50);
   }
 
+  saveHistory(player, comp) {
+    const field = {
+      'player choice': player.choice.toUpperCase(),
+      'comp choice': comp.choice.toUpperCase(),
+      result: this.result,
+    };
+
+    const history = JSON.parse(localStorage.getItem('rps-history')) || [];
+    history.push(field);
+    localStorage.setItem('rps-history', JSON.stringify(history));
+  }
+
   startGame(player, comp) {
     comp.getCompChoice();
     this.getResult(player, comp);
@@ -88,6 +100,8 @@ class Game {
     setTimeout(() => {
       this.showResult(player, comp);
     }, 1200);
+
+    this.saveHistory(player, comp);
 
     this.round++;
   }
