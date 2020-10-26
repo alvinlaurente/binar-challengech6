@@ -16,4 +16,6 @@ router.get('/home', (req, res) => {
 
 router.get('/rockpaperscissor', controller.rps_index);
 
+router.post('/rockpaperscissor', controller.rps_history);
+
 module.exports = router;

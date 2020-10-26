@@ -19,6 +19,10 @@ app.use(morgan('tiny'));
 // Static files Middleware
 app.use(express.static('./public'));
 
+// Body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Routes
 app.use(routes);
 

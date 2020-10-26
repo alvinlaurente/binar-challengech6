@@ -76,18 +76,6 @@ class Game {
     }, 50);
   }
 
-  saveHistory(player, comp) {
-    const field = {
-      'player choice': player.choice.toUpperCase(),
-      'comp choice': comp.choice.toUpperCase(),
-      result: this.result,
-    };
-
-    const history = JSON.parse(localStorage.getItem('rps-history')) || [];
-    history.push(field);
-    localStorage.setItem('rps-history', JSON.stringify(history));
-  }
-
   startGame(player, comp) {
     comp.getCompChoice();
     this.getResult(player, comp);
@@ -101,9 +89,21 @@ class Game {
       this.showResult(player, comp);
     }, 1200);
 
-    this.saveHistory(player, comp);
-
     this.round++;
+  }
+
+  // Send history as request
+  saveHistory(player, comp) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/rockpaperscissor');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    const msg = JSON.stringify({
+      'player choice': player.choice.toUpperCase(),
+      'comp choice': comp.choice.toUpperCase(),
+      result: this.result,
+    });
+    console.log(msg);
+    xhr.send(msg);
   }
 
   refresh() {
@@ -167,4 +167,7 @@ document.querySelectorAll('.contentImage .player').forEach((playerimg) => {
 // Refresh listener
 document
   .querySelector('.refresh')
-  .addEventListener('click', () => game.refresh());
+  .addEventListener('click', () => {
+    game.saveHistory(p1, cpu);
+    game.refresh();
+  });
