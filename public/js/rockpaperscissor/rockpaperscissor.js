@@ -93,7 +93,7 @@ class Game {
   }
 
   // Send history as request
-  saveHistory(player, comp) {
+  sendHistory(player, comp) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/rockpaperscissor');
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -168,6 +168,7 @@ document.querySelectorAll('.contentImage .player').forEach((playerimg) => {
 document
   .querySelector('.refresh')
   .addEventListener('click', () => {
-    game.saveHistory(p1, cpu);
+    // Send history as request
+    game.sendHistory(p1, cpu);
     game.refresh();
   });
