@@ -4,6 +4,7 @@
   "description": "Binar Academy Full Stack Web Development Challenge Chapter 5 - Migrating to Node.js",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -102,7 +102,6 @@ class Game {
       'comp choice': comp.choice.toUpperCase(),
       result: this.result,
     });
-    console.log(msg);
     xhr.send(msg);
   }
 

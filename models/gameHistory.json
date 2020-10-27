@@ -1,1 +1,62 @@
-[{"player choice":"ROCK","comp choice":"PAPER","result":"COM WIN"}]
+[
+  {
+    "player choice": "ROCK",
+    "comp choice": "PAPER",
+    "result": "COM WIN"
+  },
+  {
+    "player choice": "PAPER",
+    "comp choice": "PAPER",
+    "result": "DRAW"
+  },
+  {
+    "player choice": "SCISSOR",
+    "comp choice": "SCISSOR",
+    "result": "DRAW"
+  },
+  {
+    "player choice": "ROCK",
+    "comp choice": "PAPER",
+    "result": "COM WIN"
+  },
+  {
+    "player choice": "PAPER",
+    "comp choice": "SCISSOR",
+    "result": "COM WIN"
+  },
+  {
+    "player choice": "SCISSOR",
+    "comp choice": "PAPER",
+    "result": "PLAYER 1 WIN"
+  },
+  {
+    "player choice": "ROCK",
+    "comp choice": "SCISSOR",
+    "result": "PLAYER 1 WIN"
+  },
+  {
+    "player choice": "PAPER",
+    "comp choice": "ROCK",
+    "result": "PLAYER 1 WIN"
+  },
+  {
+    "player choice": "SCISSOR",
+    "comp choice": "SCISSOR",
+    "result": "DRAW"
+  },
+  {
+    "player choice": "ROCK",
+    "comp choice": "ROCK",
+    "result": "DRAW"
+  },
+  {
+    "player choice": "PAPER",
+    "comp choice": "SCISSOR",
+    "result": "COM WIN"
+  },
+  {
+    "player choice": "SCISSOR",
+    "comp choice": "ROCK",
+    "result": "COM WIN"
+  }
+]
