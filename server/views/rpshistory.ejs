@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/gameHead.ejs') %>
+  <!-- CSS -->
+  <!-- <link rel="stylesheet" href="/css/rockpaperscissor/game_style.css"> -->
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="align-items-center customHeader" id="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-7 my-2">
+          <div class="d-inline-block mr-3">
+            <a href="/">
+              <svg width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="rgb(114,76,33)"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+              </svg>
+            </a>
+          </div>
+          <a href="#">
+            <div class="d-inline-block mr-3">
+              <img src="/images/rockpaperscissor/logo.png" width="40px" height="40px" class="" alt="logo">
+            </div>
+          </a>
+          <a href="#">
+            <div class="d-inline-block mx-auto align-middle headerTitle">
+              Rock Paper Scissors History
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of header -->
+
+  <!-- Game Content -->
+  <div class="container-fluid bgColor">
+    <div class="container gameContent">
+    </div>
+  </div>
+  <!-- End of Game Content-->
+
+  <!-- JavaScript for Rock Paper Scissors Game -->
+  <script src="/js/rockpaperscissor/rockpaperscissor.js"></script>
+
+  <!-- Optional JavaScript -->
+  <%- include('./partials/bootstrapScripts.ejs') %>
+</body>
+
+</html>

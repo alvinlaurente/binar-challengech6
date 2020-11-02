@@ -4,7 +4,7 @@
   "description": "Binar Academy Full Stack Web Development Challenge Chapter 5 - Migrating to Node.js",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "nodemon server/app --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +26,13 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.12.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
