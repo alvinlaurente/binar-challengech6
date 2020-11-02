@@ -17,7 +17,7 @@ app.listen(port, () => {
 app.use(morgan('tiny'));
 
 // Static files Middleware
-app.use(express.static('./public'));
+app.use(express.static(`${__dirname}/public`));
 
 // Body parser
 app.use(express.json());

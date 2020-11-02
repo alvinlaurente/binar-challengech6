@@ -1,9 +1,4 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-useless-constructor */
-/* eslint-disable eqeqeq */
-/* eslint-disable no-plusplus */
 /* eslint-disable max-classes-per-file */
-/* eslint-disable no-unused-expressions */
 // OOP Version
 
 class Game {
@@ -52,26 +47,26 @@ class Game {
     const start = new Date().getTime();
     let i = 0;
 
+    // eslint-disable-next-line consistent-return
     setInterval(() => {
       if (new Date().getTime() - start >= 1000) {
-        clearInterval;
-        return;
+        return clearInterval;
       }
       /* Comp pretends to think before play */
       this.compBox[i++].style.backgroundColor = '#c4c4c4';
-      if (i == this.compBox.length) i = 0;
+      if (i === this.compBox.length) i = 0;
     }, 50);
 
     setTimeout(() => {
+      // eslint-disable-next-line consistent-return
       setInterval(() => {
         if (new Date().getTime() - start >= 1200) {
-          clearInterval;
-          return;
+          return clearInterval;
         }
         // Reselect the DOM - It won't work with this.compBox
         const compBox = document.querySelectorAll('.greyBox.compImage');
         compBox[i++].style.backgroundColor = '#9c835f';
-        if (i == compBox.length) i = 0;
+        if (i === compBox.length) i = 0;
       }, 50);
     }, 50);
   }
@@ -129,10 +124,6 @@ class Player {
 }
 
 class Comp extends Player {
-  constructor() {
-    super();
-  }
-
   getCompChoice() {
     const choice = Math.random();
     if (choice <= 1 / 3) this.choice = 'rock';
@@ -159,7 +150,7 @@ document.querySelectorAll('.contentImage .player').forEach((playerimg) => {
 
       // Start the game
       game.startGame(p1, cpu);
-    } else alert('Please reset the game first.');
+    }
   });
 });
 
@@ -167,7 +158,6 @@ document.querySelectorAll('.contentImage .player').forEach((playerimg) => {
 document
   .querySelector('.refresh')
   .addEventListener('click', () => {
-    // Send history as request
     game.sendHistory(p1, cpu);
     game.refresh();
   });

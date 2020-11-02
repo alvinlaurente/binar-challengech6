@@ -23,13 +23,13 @@
   "homepage": "https://github.com/alvinlaurente/binar-challengech5#readme",
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.6"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "eslint": "^7.12.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
   }
 }
