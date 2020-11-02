@@ -2,6 +2,7 @@ body, html {
 	scroll-behavior: smooth;
 	text-decoration: none !important;
 	font-family: "Open Sans", sans-serif;
+	background-color: #9c835f;
 }
 
 /* Header */
@@ -17,11 +18,9 @@ body, html {
 }
 
 .bgColor {
-	height: 100%;
 	position: absolute;
 	z-index: -1;
 	top: 0;
-	background-color: #9c835f;
 }
 
 .historyContent {
@@ -30,8 +29,13 @@ body, html {
 	text-align: center !important;
 }
 
-.historyContent table span.delete {
-  cursor: pointer;
+.historyContent table td {
+	padding: 0;
+}
+
+.historyContent table button {
+	background-color: transparent !important;
+	border: 0;
 }
 
 /* Smaller Device version */

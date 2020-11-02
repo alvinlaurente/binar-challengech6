@@ -51,14 +51,18 @@
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i<history.length; i++) { %> 
-            <tr>
-              <td><%= history[i]['player choice'] %></td>
-              <td><%= history[i]['comp choice'] %></td>
-              <td><%= history[i]['result'] %></td>
-              <td><span class="delete" data-time="<%= history[i]['time'] %>">&#10060;</span></td>
-            </tr>
-          <% } %> 
+          <% for(let i=0; i<history.length; i++) { %>
+          <tr>
+            <td><%= history[i]['player choice'] %></td>
+            <td><%= history[i]['comp choice'] %></td>
+            <td><%= history[i]['result'] %></td>
+            <td>
+              <form>
+                <button class="delete" data-time="<%= history[i]['time'] %>">&#10060;</button>
+              </form>
+            </td>
+          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
@@ -66,16 +70,13 @@
   <!-- End of Game Content-->
 
   <script>
-    document.querySelectorAll('span').forEach((del) => {
+    document.querySelectorAll('button').forEach((del) => {
       del.addEventListener('click', () => {
         const time = del.dataset.time;
         const xhr = new XMLHttpRequest();
         xhr.open('DELETE', '/gameHistory');
         xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-        const msg = JSON.stringify({
-          time: time
-        })
-        xhr.send(msg);
+        xhr.send(JSON.stringify({time: time}));
       })
     })
   </script>

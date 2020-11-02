@@ -34,7 +34,10 @@ class Controller {
   static delete_game_history = (req, res) => {
     const { time } = req.body;
     const findObj = gameHistory.find((elm) => elm.time === parseInt(time, 10));
-    console.log(findObj);
+
+    if (!findObj) {
+      res.status(400);
+    }
 
     for (let i = 0; i < gameHistory.length; i += 1) {
       if (gameHistory[i].time === parseInt(time, 10)) {

@@ -94,6 +94,7 @@ class Game {
     xhr.open('POST', '/rockpaperscissor');
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     const msg = JSON.stringify({
+      // Unique Timestamp
       time: Math.floor(time / 1000),
       'player choice': player.choice.toUpperCase(),
       'comp choice': comp.choice.toUpperCase(),
