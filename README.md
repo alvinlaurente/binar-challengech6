@@ -13,6 +13,7 @@ Binar Academy Full Stack Web Development Challenge Chapter 5 - Migrating to Node
 
 ### Packages used :
 
+- Babel : Transpiler
 - Express : Node.js Framework
 - EJS : View Engine
 - ESLint : Linter - airbnb based
