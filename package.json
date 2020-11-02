@@ -7,6 +7,9 @@
     "start": "nodemon server/app --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "nodemonConfig": {
+    "ignore": ["server/models/*.json"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alvinlaurente/binar-challengech5.git"

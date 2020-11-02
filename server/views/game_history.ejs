@@ -4,7 +4,7 @@
 <head>
   <%- include('./partials/gameHead.ejs') %>
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="/css/rockpaperscissor/game_style.css"> -->
+  <link rel="stylesheet" href="/css/rockpaperscissor/game_history.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-lg-7 my-2">
           <div class="d-inline-block mr-3">
-            <a href="/">
+            <a href="/rockpaperscissor">
               <svg width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="rgb(114,76,33)"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -22,7 +22,7 @@
               </svg>
             </a>
           </div>
-          <a href="#">
+          <a href="/rockpaperscissor">
             <div class="d-inline-block mr-3">
               <img src="/images/rockpaperscissor/logo.png" width="40px" height="40px" class="" alt="logo">
             </div>
@@ -40,13 +40,45 @@
 
   <!-- Game Content -->
   <div class="container-fluid bgColor">
-    <div class="container gameContent">
+    <div class="container historyContent">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Player's Choice</th>
+            <th scope="col">Comp's Choice</th>
+            <th scope="col">Result</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i<history.length; i++) { %> 
+            <tr>
+              <td><%= history[i]['player choice'] %></td>
+              <td><%= history[i]['comp choice'] %></td>
+              <td><%= history[i]['result'] %></td>
+              <td><span class="delete" data-time="<%= history[i]['time'] %>">&#10060;</span></td>
+            </tr>
+          <% } %> 
+        </tbody>
+      </table>
     </div>
   </div>
   <!-- End of Game Content-->
 
-  <!-- JavaScript for Rock Paper Scissors Game -->
-  <script src="/js/rockpaperscissor/rockpaperscissor.js"></script>
+  <script>
+    document.querySelectorAll('span').forEach((del) => {
+      del.addEventListener('click', () => {
+        const time = del.dataset.time;
+        const xhr = new XMLHttpRequest();
+        xhr.open('DELETE', '/gameHistory');
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        const msg = JSON.stringify({
+          time: time
+        })
+        xhr.send(msg);
+      })
+    })
+  </script>
 
   <!-- Optional JavaScript -->
   <%- include('./partials/bootstrapScripts.ejs') %>
