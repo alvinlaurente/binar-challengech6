@@ -1,21 +1,20 @@
-/* eslint-disable camelcase */
 import fs from 'fs';
-import gameHistory from '../models/gameHistory.json';
+// import gameHistory from '../models/gameHistory.json';
 
 class Controller {
-  static home_index = (req, res) => {
+  static homeIndex = (req, res) => {
     res.render('index', { title: 'Home' });
   };
 
-  static rps_index = (req, res) => {
+  static rpsIndex = (req, res) => {
     res.render('rockpaperscissor', { title: 'Rock Paper Scissor' });
   };
 
-  static game_history = (req, res) => {
+  static gameHistory = (req, res) => {
     res.render('game_history', { title: 'Game History', history: gameHistory });
   }
 
-  static rps_history = (req, res) => {
+  static rpsHistory = (req, res) => {
     // Check if any req body fields are missing
     if (!req.body['player choice'] || !req.body['comp choice'] || !req.body.result) {
       return res.status(401).send({ error: true, message: 'Field missing in request body.' });
@@ -31,7 +30,7 @@ class Controller {
     );
   };
 
-  static delete_game_history = (req, res) => {
+  static deleteGameHistory = (req, res) => {
     const { time } = req.body;
     const findObj = gameHistory.find((elm) => elm.time === parseInt(time, 10));
 

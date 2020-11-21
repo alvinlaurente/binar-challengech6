@@ -5,10 +5,17 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon server/app --exec babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "eslint server/ --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sequelize": "sequelize",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all",
+    "db:migrate:refresh": "sequelize db:migrate:undo:all && yarn db:migrate"
   },
   "nodemonConfig": {
-    "ignore": ["server/models/*.json"]
+    "ignore": [
+      "server/models/*.json"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,8 +32,11 @@
   },
   "homepage": "https://github.com/alvinlaurente/binar-challengech5#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -40,6 +50,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
   }
 }
