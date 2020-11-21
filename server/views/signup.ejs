@@ -19,17 +19,17 @@
     <div class="container">
       <div class="row d-flex">
         <div class="col-md-6 offset-md-6 text-left">
-          <form>
+          <form action="/auth/signup" method="POST">
             <div class="form-group">
               <label for="name">FULL NAME</label>
-              <input type="email" class="form-control" id="name" placeholder="Enter your full name" required>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
               <label for="email">EMAIL ADDRESS</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               <label for="username">USERNAME</label>
-              <input type="email" class="form-control" id="username" placeholder="Enter your desired username" required>
-              <label for="exampleInputPassword1">PASSWORD</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Enter your desired username" required>
+              <label for="password">PASSWORD</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn btn-warning signupSubmit" id="signupSubmit">SIGN UP</button>
           </form>

@@ -17,7 +17,7 @@ app.listen(port, () => {
 });
 
 // Logger Middleware
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 
 // Static files Middleware
 app.use(express.static('public'));
