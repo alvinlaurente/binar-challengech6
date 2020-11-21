@@ -1,15 +1,14 @@
 import { Model } from 'sequelize';
-import { validate } from 'uuid';
 
 module.exports = (sequelize, DataTypes) => {
-  class userGameBiodata extends Model {
+  class userGames extends Model {
     static associate(models) {
-      const { userGames } = models;
+      const { userGameHistories } = models;
 
-      userGameBiodata.belongsTo(userGames, { foreignKey: 'userId', onDelete: 'cascade' });
+      userGames.hasMany(userGameHistories, { foreignKey: 'userID' });
     }
   }
-  userGameBiodata.init({
+  userGames.init({
     userId: {
       primaryKey: true,
       type: DataTypes.UUID,
@@ -19,30 +18,31 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    name: {
+    email: {
+      primaryKey: true,
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+        notEmpty: true,
+      },
+    },
+    username: {
+      type: DataTypes.STRING,
+      validate: {
+        isAlphanumeric: true,
+        notEmpty: true,
+      },
+    },
+    password: {
       type: DataTypes.STRING,
       validate: {
         notEmpty: true,
       },
     },
-    gender: {
-      type: DataTypes.ENUM,
-      values: ['m', 'f'],
-      validate: {
-        isIn: [['f', 'm']],
-      },
-    },
-    dob: {
-      type: DataTypes.DATE,
-      validate: {
-        isDate: true,
-      },
-    },
-    status: DataTypes.STRING,
   }, {
     sequelize,
-    modelName: 'userGameBiodata',
+    modelName: 'userGames',
     timestamps: false,
   });
-  return userGameBiodata;
+  return userGames;
 };

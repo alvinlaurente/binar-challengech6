@@ -4,6 +4,7 @@ module.exports = {
       userId: {
         allowNull: false,
         primaryKey: true,
+        unique: true,
         type: Sequelize.UUID,
         references: {
           model: 'userGames',
@@ -12,10 +13,6 @@ module.exports = {
         onDelete: 'cascade',
       },
       name: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      email: {
         allowNull: false,
         type: Sequelize.STRING,
       },

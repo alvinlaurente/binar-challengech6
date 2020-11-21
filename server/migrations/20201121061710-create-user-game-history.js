@@ -4,6 +4,7 @@ module.exports = {
       historyId: {
         allowNull: false,
         primaryKey: true,
+        unique: true,
         type: Sequelize.UUID,
       },
       timestamps: {
@@ -17,7 +18,7 @@ module.exports = {
           model: 'userGames',
           key: 'userId',
         },
-        onDelete: 'set null',
+        onDelete: 'cascade',
       },
       player_choice: {
         allowNull: false,
