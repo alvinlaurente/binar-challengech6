@@ -18,11 +18,11 @@ class Game {
 
   getResult(player, comp) {
     if (player.choice === comp.choice) this.result = 'DRAW';
-    if (player.choice === 'rock' && comp.choice === 'scissor') { this.result = 'PLAYER 1 WIN'; }
+    if (player.choice === 'rock' && comp.choice === 'scissor') { this.result = 'PLAYER WIN'; }
     if (player.choice === 'rock' && comp.choice === 'paper') { this.result = 'COM WIN'; }
-    if (player.choice === 'paper' && comp.choice === 'rock') { this.result = 'PLAYER 1 WIN'; }
+    if (player.choice === 'paper' && comp.choice === 'rock') { this.result = 'PLAYER WIN'; }
     if (player.choice === 'paper' && comp.choice === 'scissor') { this.result = 'COM WIN'; }
-    if (player.choice === 'scissor' && comp.choice === 'paper') { this.result = 'PLAYER 1 WIN'; }
+    if (player.choice === 'scissor' && comp.choice === 'paper') { this.result = 'PLAYER WIN'; }
     if (player.choice === 'scissor' && comp.choice === 'rock') { this.result = 'COM WIN'; }
   }
 

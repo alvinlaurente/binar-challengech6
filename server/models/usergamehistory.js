@@ -9,9 +9,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   userGameHistory.init({
-    timestamps: {
+    historyId: {
       primaryKey: true,
-      type: DataTypes.DATETIME,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    timestamps: {
+      type: DataTypes.DATE,
       defaultValue: Sequelize.NOW,
     },
     userId: DataTypes.UUID,

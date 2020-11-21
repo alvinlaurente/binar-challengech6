@@ -1,9 +1,13 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('userGameHistories', {
-      timestamps: {
+      historyId: {
         allowNull: false,
         primaryKey: true,
+        type: Sequelize.UUID,
+      },
+      timestamps: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
       userId: {

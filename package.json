@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sequelize": "sequelize",
     "db:migrate": "sequelize db:migrate",
-    "db:seed:all": "sequelize db:seed:all",
+    "db:seed:all": "sequelize db:seed:all --debug",
     "db:migrate:refresh": "sequelize db:migrate:undo:all && yarn db:migrate"
   },
   "nodemonConfig": {
