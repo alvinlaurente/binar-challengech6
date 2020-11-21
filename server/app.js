@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import routes from './routes/routes';
+import authRoutes from './routes/authRoutes';
 
 const app = express();
 const port = 3000;
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use(routes);
+app.use('/auth', authRoutes);
 
 // 404 Page
 app.use((req, res) => {
