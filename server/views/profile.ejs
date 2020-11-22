@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="/css/index/mobile_style.css" />
+  <link rel="stylesheet" href="/css/index/desktop_style.css" />
+  <link rel="stylesheet" href="/css/index/tablet_style.css" />
+  <link rel="stylesheet" href="/css/index/smphone_style.css" />
+  <link rel="stylesheet" href="/css/profile.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <%- include('./partials/navbar.ejs') %>
+  <!-- End of navbar -->
+
+  <div class="jumbotron jumbotron-fluid d-flex align-items-center profile" id="newslettercontent">
+    <div class="container">
+      <div class="row d-flex">
+        <div class="col-md-8 text-left">
+          <h1>User Data</h1>
+          <table class="table table-dark table-bordered">
+              <tr>
+                <td scope="col">User ID</td>
+                <td scope="col"><%= data.userGame.userId %></td>
+              </tr>
+              <tr>
+                <td scope="col">Username</td>
+                <td scope="col"><%= data.userGame.username %></td>
+              </tr>
+              <tr>
+                <td scope="col">Email</td>
+                <td scope="col"><%= data.userGame.email %></td>
+              </tr>
+              <tr>
+                <td scope="col">Name</td>
+                <td scope="col"><%= data.name %></td>
+              </tr>
+              <tr>
+                <td scope="col">Gender</td>
+                <td scope="col"><%= data.gender %></td>
+              </tr>
+              <tr>
+                <td scope="col">Birthday</td>
+                <td scope="col"><%= data.dob %></td>
+              </tr>
+              <tr>
+                <td scope="col">Status</td>
+                <td scope="col"><%= data.status %></td>
+              </tr>
+          </table>
+
+          <a href="/profile/edit">
+            <button type="button" class="btn btn-warning profileEdit" id="profileEdit">EDIT PROFILE</button>
+          </a>
+          <a href="/profile/changePassword">
+            <button type="button" class="btn btn-warning changePassword" id="changePassword">CHANGE PASSWORD</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <%- include('./partials/navigation.ejs') %>
+  <!-- Navigation -->
+  <!-- Footer -->
+  <%- include('./partials/footer.ejs') %>
+  <!-- End of Footer -->
+  </div>
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<%- include('./partials/bootstrapScripts.ejs') %>
+
+</html>
