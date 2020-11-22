@@ -21,6 +21,12 @@ html {
   background-image: linear-gradient(black 0%, transparent 10%, transparent 90%, black 100%), url(/images/index/newsletter-bg.jpg);
 }
 
+.loginForm .errorLog {
+  background-color: red;
+  opacity: 0.5;
+  color: black;
+}
+
 .footer p {
   font-size: 14px;
   color: grey;
