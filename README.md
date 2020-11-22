@@ -1,28 +1,37 @@
-# binar-challengech5
+# binar-challengech6
 
-Binar Academy Full Stack Web Development Challenge Chapter 5 - Migrating to Node.js
+Binar Academy Full Stack Web Development Challenge Chapter 6 - Database with PostgreSQL (Sequelize)
 
 ### Step-by-step to run the app
 
 1. Clone the repo.
 2. Open directory.
 3. Run in terminal : `npm install` to install all required packages that listed in **_packages.json_**.
-4. Run **Server** in terminal : `npm start`
-6. To test if the routes work, try to click the **1st image** of carousel (_Rock Paper Scissor_ image).
-7. Try to go to undefined routes (ex: `localhost:3000/abcde` or `localhost:3000/login`) and you will be redirected into **404 page**.
+4. Make database in pgAdmin.
+5. Make your own **_.env_** environment file based on **_.env.example_**.
+6. Migrate database tables and populate seeders with custom script : `npm run db:refresh:all` or `yarn db:refresh:all`
+7. Run **Server** in terminal : `npm run start` or `yarn start`.
 
 ### Packages used :
 
-- Babel : Transpiler
+- Babel.js : Transpiler
 - Express : Node.js Framework
+- dotenv : Environment
 - EJS : View Engine
 - ESLint : Linter - airbnb based
 - Morgan : Logger (see the log on node console)
+- Sequelize : ORM for PostgreSQL
+- Joi : Form Validation
+- express-session : Authentication
 
 ### Folders :
 
-- controllers -> act as controller in MVC pattern.
-- models -> act as data model in MVC pattern.
-- routes -> web routes
+- public -> Serve static files (css, images, js, etc).
+- configs -> config file(s).
+- controllers -> controllers for user interactions.
+- middlewares -> express-session & joi schema
+- migrations -> migration for db tables.
+- models -> model mapping.
+- routes -> web routes.
+- seeders
 - views -> act as views in MVC pattern using EJS.
-- public -> Serve static files (css, images, js)

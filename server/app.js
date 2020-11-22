@@ -1,7 +1,7 @@
 import express from 'express';
-import session from 'express-session';
-import logger from 'morgan';
 import path from 'path';
+import logger from 'morgan';
+import session from 'express-session';
 import routes from './routes/routes';
 import authRoutes from './routes/authRoutes';
 
