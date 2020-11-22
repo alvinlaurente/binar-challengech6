@@ -1,5 +1,5 @@
 import express from 'express';
-import morgan from 'morgan';
+import logger from 'morgan';
 import path from 'path';
 import routes from './routes/routes';
 import authRoutes from './routes/authRoutes';
@@ -17,7 +17,7 @@ app.listen(port, () => {
 });
 
 // Logger Middleware
-// app.use(morgan('tiny'));
+app.use(logger('dev'));
 
 // Static files Middleware
 app.use(express.static('public'));
