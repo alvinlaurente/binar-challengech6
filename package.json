@@ -7,10 +7,10 @@
     "start": "nodemon server/app --exec babel-node",
     "lint:fix": "eslint server/ --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sequelize": "sequelize",
     "db:migrate": "sequelize db:migrate",
     "db:seed:all": "sequelize db:seed:all --debug",
-    "db:migrate:refresh": "sequelize db:migrate:undo:all && yarn db:migrate"
+    "db:migrate:refresh": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "db:refresh:all": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all --debug"
   },
   "nodemonConfig": {
     "ignore": [

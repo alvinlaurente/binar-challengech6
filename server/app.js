@@ -5,7 +5,7 @@ import routes from './routes/routes';
 import authRoutes from './routes/authRoutes';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT_NUM;
 
 // Template/View engine using EJS
 app.set('view engine', 'ejs');

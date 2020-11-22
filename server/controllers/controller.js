@@ -1,9 +1,8 @@
 import fs from 'fs';
-// import gameHistory from '../models/gameHistory.json';
 
 class Controller {
   static homeIndex = (req, res) => {
-    res.render('index', { title: 'Home' });
+    res.render('index', { title: 'Home', login: false });
   };
 
   static rpsIndex = (req, res) => {
