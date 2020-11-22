@@ -1,4 +1,5 @@
 import express from 'express';
+import blockUnauthenticated from '../middlewares/authentication/blockUnauthenticated';
 import controller from '../controllers/controller';
 
 const router = express.Router();
@@ -12,10 +13,10 @@ router.get('/home', (req, res) => {
   res.redirect('/');
 });
 
-router.get('/rockpaperscissor', controller.rpsIndex);
-router.get('/gameHistory', controller.gameHistory);
+router.get('/rockpaperscissor', blockUnauthenticated, controller.rpsIndex);
+router.get('/gameHistory', blockUnauthenticated, controller.gameHistory);
 
-router.post('/rockpaperscissor', controller.rpsHistory);
-router.delete('/gameHistory', controller.deleteGameHistory);
+router.post('/rockpaperscissor', blockUnauthenticated, controller.rpsHistory);
+router.delete('/gameHistory', blockUnauthenticated, controller.deleteGameHistory);
 
 export default router;

@@ -1,14 +1,16 @@
 import express from 'express';
+import blockUnauthenticated from '../middlewares/authentication/blockUnauthenticated';
+import blockAuthenticated from '../middlewares/authentication/blockAuthenticated';
 import authController from '../controllers/authController';
 
 const authRouter = express.Router();
 
-authRouter.get('/signup', authController.getSignup);
-authRouter.post('/signup', authController.postSignup);
+authRouter.get('/signup', blockAuthenticated, authController.getSignup);
+authRouter.post('/signup', blockAuthenticated, authController.postSignup);
 
-authRouter.get('/login', authController.getLogin);
-authRouter.post('/login', authController.postLogin);
+authRouter.get('/login', blockAuthenticated, authController.getLogin);
+authRouter.post('/login', blockAuthenticated, authController.postLogin);
 
-authRouter.post('/logout', authController.logout);
+authRouter.post('/logout', blockUnauthenticated, authController.logout);
 
 export default authRouter;

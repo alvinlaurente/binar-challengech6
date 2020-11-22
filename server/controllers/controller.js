@@ -1,8 +1,12 @@
 import fs from 'fs';
 
 class Controller {
-  static homeIndex = (req, res) => {
-    res.render('index', { title: 'Home', login: false });
+  static homeIndex = async (req, res) => {
+    let login = false;
+    if (req.session.userId) {
+      login = true;
+    }
+    res.render('index', { title: 'Home', login, username: req.session.username || '' });
   };
 
   static rpsIndex = (req, res) => {
