@@ -1,5 +1,4 @@
 import { Model } from 'sequelize';
-import { validate } from 'uuid';
 
 module.exports = (sequelize, DataTypes) => {
   class userGameBiodata extends Model {

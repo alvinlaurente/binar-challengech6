@@ -29,7 +29,7 @@ class authController {
 
       // Check email is already in database
       const emailExist = await userGames.findOne({ where: { email } });
-      if (emailExist) return res.render('signup', { title: 'Sign Up', login, validateError: 'Email is already signed up.' });
+      if (emailExist) return res.render('signup', { title: 'Sign Up', login, validateError: 'Email is already taken.' });
 
       // Check username is already in database
       const usernameExist = await userGames.findOne({ where: { username } });
