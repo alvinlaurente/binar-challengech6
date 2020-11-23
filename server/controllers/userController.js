@@ -103,6 +103,26 @@ class userController {
       return res.redirect('/profile/changePassword', { login: false });
     }
   };
+
+  static deleteUser = async (req, res) => {
+    // TODO : ADD DELETE CONFIRMATION BOX
+    const login = checkUserId(req.session);
+    try {
+      await userGames.destroy({ where: { userId: req.session.userId } })
+        .catch((e) => console.log(e));
+
+      req.session.destroy((err) => {
+        if (err) {
+          return res.render('index', { title: 'Home', login, username: '' });
+        }
+        res.clearCookie(process.env.SESSION_NAME);
+
+        return res.redirect('/auth/login');
+      });
+    } catch {
+      return res.redirect('/profile');
+    }
+  };
 }
 
 export default userController;

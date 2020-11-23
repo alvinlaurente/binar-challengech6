@@ -34,7 +34,7 @@ class gameController {
         result,
       }).catch((e) => console.log(e));
 
-      return res.status(200).json({ message: 'OK' });
+      return res.status(201);
     } catch {
       return res.redirect('/rockpaperscissor');
     }
@@ -44,7 +44,8 @@ class gameController {
     try {
       const { historyId } = req.body;
 
-      await userGameHistories.destroy({ where: { historyId } }).catch((e) => console.log(e));
+      await userGameHistories.destroy({ where: { historyId } })
+        .catch((e) => console.log(e));
 
       return res.redirect('/gameHistory');
     } catch {

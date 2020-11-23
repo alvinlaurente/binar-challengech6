@@ -93,6 +93,7 @@ class authController {
         return res.render('index', { title: 'Home', login, username: '' });
       }
       res.clearCookie(process.env.SESSION_NAME);
+
       return res.redirect('/auth/login');
     });
   }

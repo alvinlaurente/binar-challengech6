@@ -22,6 +22,7 @@ router.get('/profile/edit', blockUnauthenticated, userController.getEditProfile)
 router.get('/profile/changePassword', blockUnauthenticated, userController.getChangePassword);
 router.patch('/profile/edit', [blockUnauthenticated, editProfileValidation], userController.patchEditProfile);
 router.patch('/profile/changePassword', [blockUnauthenticated, changePasswordValidation], userController.patchChangePassword);
+router.delete('/profile/deleteUser', blockUnauthenticated, userController.deleteUser);
 
 router.get('/rockpaperscissor', blockUnauthenticated, gameController.rpsIndex);
 router.get('/gameHistory', blockUnauthenticated, gameController.getGameHistory);
