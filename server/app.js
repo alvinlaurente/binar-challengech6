@@ -1,12 +1,17 @@
 import express from 'express';
+import helmet from 'helmet';
 import path from 'path';
 import logger from 'morgan';
 import session from 'express-session';
-import methodOverride from 'method-override'
+import methodOverride from 'method-override';
 import routes from './routes/routes';
 import authRoutes from './routes/authRoutes';
 
 const app = express();
+
+// Helmet
+app.use(helmet());
+
 const port = process.env.PORT_NUM;
 
 // Template/View engine using EJS
@@ -28,16 +33,20 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session & Cookies
+// Session & Cookies - Session store method use in-memory storage for development env
+// TODO : Change Session store for production env
+const expiryDate = new Date(Date.now() + 2 * 60 * 60 * 1000); // 2 hours
 app.use(session({
   name: process.env.SESSION_NAME,
   resave: false,
   saveUninitialized: false,
   secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 2 * 60 * 60 * 1000, // 2 hour in milliseconds
+    httpOnly: true,
+    path: '/',
+    expiryDate,
     sameSite: true,
-    // For development secure = false
+    // TODO: False for development, use true for production env (HTTPS)
     secure: false,
   },
 }));
@@ -51,5 +60,7 @@ app.use('/auth', authRoutes);
 
 // 404 Page
 app.use((req, res) => {
-  res.status(404).render('404', { title: '404' });
+  let login = false;
+  if (req.session.userId) { login = true; }
+  res.status(404).render('404', { title: '404', login, username: req.session.username || '' });
 });

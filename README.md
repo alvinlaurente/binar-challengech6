@@ -14,16 +14,18 @@ Binar Academy Full Stack Web Development Challenge Chapter 6 - Database with Pos
 
 ### Packages used :
 
-- Babel.js : Transpiler
+- Babel.js : Transcompiler
 - Express : Node.js Framework
 - dotenv : Environment
 - EJS : View Engine
 - ESLint : Linter - airbnb based
 - Morgan : Logger (see the log on node console)
 - Sequelize : ORM for PostgreSQL
+- bcrypt : Password hashing
 - Joi : Form Validation
-- express-session : Authentication
+- express-session : Authentication (Session & Cookies)
 - method-override : Override POST method in form
+- Helmet : Secure HTTP headers
 
 ### Folders :
 
