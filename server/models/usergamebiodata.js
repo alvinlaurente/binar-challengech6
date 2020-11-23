@@ -20,15 +20,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: {
       type: DataTypes.STRING,
-      validate: {
-        notEmpty: true,
-      },
     },
     gender: {
       type: DataTypes.ENUM,
-      values: ['m', 'f'],
+      values: ['m', 'f', 'null'],
       validate: {
-        isIn: [['f', 'm']],
+        isIn: [['m', 'f', 'null']],
       },
     },
     dob: {

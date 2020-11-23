@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import logger from 'morgan';
 import session from 'express-session';
+import methodOverride from 'method-override'
 import routes from './routes/routes';
 import authRoutes from './routes/authRoutes';
 
@@ -40,6 +41,9 @@ app.use(session({
     secure: false,
   },
 }));
+
+// Method Override
+app.use(methodOverride('_method'));
 
 // Routes
 app.use(routes);

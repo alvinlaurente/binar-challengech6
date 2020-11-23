@@ -23,6 +23,7 @@ Binar Academy Full Stack Web Development Challenge Chapter 6 - Database with Pos
 - Sequelize : ORM for PostgreSQL
 - Joi : Form Validation
 - express-session : Authentication
+- method-override : Override POST method in form
 
 ### Folders :
 

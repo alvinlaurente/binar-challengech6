@@ -19,7 +19,7 @@ module.exports = {
       gender: {
         allowNull: true,
         type: Sequelize.ENUM,
-        values: ['m', 'f'],
+        values: ['m', 'f', 'null'],
       },
       dob: {
         allowNull: true,

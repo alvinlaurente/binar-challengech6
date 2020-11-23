@@ -16,7 +16,7 @@ module.exports = {
       }, {
         userId: '95cf7a67-7738-45af-b207-3a0542aa3f3f',
         name: 'Charlie Gamer',
-        gender: 'm',
+        gender: 'null',
         dob: new Date(2000, 9, 30),
         status: 'RPG Player',
       },
