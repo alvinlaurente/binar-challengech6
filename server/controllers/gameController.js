@@ -10,7 +10,7 @@ class gameController {
       const history = await userGameHistories.findAll({
         attributes: ['historyId', 'timestamps', 'player_choice', 'comp_choice', 'result'],
         where: { userId: req.session.userId },
-        order: [['timestamps', 'ASC']],
+        order: [['timestamps', 'DESC']],
       })
         .catch((e) => console.log(e));
 
