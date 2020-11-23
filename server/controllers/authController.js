@@ -1,7 +1,5 @@
 import bcrypt from 'bcrypt';
 import { userGames, userGameBiodata } from '../models';
-import signupValidation from '../middlewares/validation/signupValidation';
-import loginValidation from '../middlewares/validation/loginValidation';
 import checkUserId from '../middlewares/authentication/checkUserId';
 
 class authController {
@@ -14,20 +12,9 @@ class authController {
     const login = checkUserId(req.session);
 
     try {
-      const {
-        name, email, username, password, repeatPassword,
-      } = req.body;
+      const { email, username } = req.body;
 
-      // Validate Form using joi
-      const { error } = await signupValidation.validate({
-        name,
-        email,
-        username,
-        password,
-        repeatPassword,
-      });
-      if (error) return res.render('signup', { title: 'Sign Up', login, validateError: `${error.details[0].message}` });
-
+      // TODO : Separate Middleware for checking email & username
       // Check email is already in database
       const emailExist = await userGames.findOne({ where: { email } });
       if (emailExist) return res.render('signup', { title: 'Sign Up', login, validateError: 'Email is already taken.' });
@@ -67,14 +54,7 @@ class authController {
     try {
       const { username, password } = req.body;
 
-      // Validate Form using joi
-      const { error } = await loginValidation.validate({ username, password });
-      if (error) {
-        return res.render('login', {
-          title: 'Login', login, validateError: `${error.details[0].message}`,
-        });
-      }
-
+      // TODO : Separate Middleware for check email & username
       // Check stored username from database
       const validUsername = await userGames.findOne({ where: { username } });
       if (!validUsername) {

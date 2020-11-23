@@ -1,7 +1,5 @@
 import bcrypt from 'bcrypt';
 import { userGames, userGameBiodata } from '../models';
-import editProfileValidation from '../middlewares/validation/editProfileValidation';
-import changePasswordValidation from '../middlewares/validation/changePasswordValidation';
 import checkUserId from '../middlewares/authentication/checkUserId';
 
 class userController {
@@ -51,19 +49,6 @@ class userController {
       const { name, status, gender } = req.body;
       let { dob } = req.body;
 
-      // Validate using joi
-      const { error } = await editProfileValidation.validate({
-        name,
-        gender,
-        dob,
-        status,
-      });
-      if (error) {
-        return res.render('editProfile', {
-          title: 'Edit Profile', login, username: req.session.username || '', validateError: `${error.details[0].message}`,
-        });
-      }
-
       if (!dob) dob = null;
 
       await userGameBiodata.findOne({
@@ -87,19 +72,7 @@ class userController {
     const login = checkUserId(req.session);
 
     try {
-      const { oldPassword, password, repeatPassword } = req.body;
-
-      // Validate using joi
-      const { error } = await changePasswordValidation.validate({
-        oldPassword,
-        password,
-        repeatPassword,
-      });
-      if (error) {
-        return res.render('changePassword', {
-          title: 'Change Password', login, username: req.session.username || '', validateError: `${error.details[0].message}`,
-        });
-      }
+      const { oldPassword, password } = req.body;
 
       if (oldPassword === password) {
         return res.render('changePassword', {
