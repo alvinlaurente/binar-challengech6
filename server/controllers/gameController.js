@@ -5,7 +5,7 @@ class gameController {
     res.render('rockpaperscissor', { title: 'Rock Paper Scissor', username: req.session.username });
   };
 
-  static gameHistory = async (req, res) => {
+  static getGameHistory = async (req, res) => {
     try {
       const history = await userGameHistories.findAll({
         attributes: ['historyId', 'timestamps', 'player_choice', 'comp_choice', 'result'],
@@ -20,7 +20,7 @@ class gameController {
     }
   };
 
-  static rpsHistory = async (req, res) => {
+  static postGameHistory = async (req, res) => {
     // TODO : Validate request!
     try {
       // eslint-disable-next-line camelcase
@@ -40,7 +40,16 @@ class gameController {
     }
   };
 
-  static deleteGameHistory = (req, res) => {
+  static deleteGameHistory = async (req, res) => {
+    try {
+      const { historyId } = req.body;
+
+      await userGameHistories.destroy({ where: { historyId } }).catch((e) => console.log(e));
+
+      return res.redirect('/gameHistory');
+    } catch {
+      return res.redirect('/rockpaperscissor');
+    }
   };
 }
 

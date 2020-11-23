@@ -44,6 +44,7 @@
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">No</th>
             <th scope="col">Timestamps</th>
             <th scope="col">Player's Choice</th>
             <th scope="col">Comp's Choice</th>
@@ -54,13 +55,15 @@
         <tbody>
           <% for(let i=0; i<history.length; i++) { %>
           <tr>
+            <td><%= i+1 %></td>
             <td><%= history[i]['timestamps'] %></td>
             <td style="text-transform: capitalize;"><%= history[i]['player_choice'] %></td>
             <td style="text-transform: capitalize;"><%= history[i]['comp_choice'] %></td>
             <td style="text-transform: capitalize;"><%= history[i]['result'] %></td>
             <td>
-              <form>
-                <button class="delete" data-id="<%= history[i]['historyId'] %>">&#10060;</button>
+              <form action="/gameHistory?_method=DELETE" method="POST">
+                <input type="hidden" id="historyId" name="historyId" value="<%= history[i]['historyId'] %>">
+                <button type="submit">&#10060;</button>
               </form>
             </td>
           </tr>
@@ -70,18 +73,6 @@
     </div>
   </div>
   <!-- End of Game Content-->
-
-  <script>
-    document.querySelectorAll('button').forEach((del) => {
-      del.addEventListener('click', () => {
-        const time = del.dataset.time;
-        const xhr = new XMLHttpRequest();
-        xhr.open('DELETE', '/gameHistory');
-        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-        xhr.send(JSON.stringify({time: time}));
-      })
-    })
-  </script>
 
   <!-- Optional JavaScript -->
   <%- include('./partials/bootstrapScripts.ejs') %>

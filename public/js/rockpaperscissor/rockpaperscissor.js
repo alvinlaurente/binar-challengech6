@@ -90,7 +90,7 @@ class Game {
   // Send history as request
   sendHistory(player, comp) {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/rockpaperscissor');
+    xhr.open('POST', '/gameHistory');
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     const msg = JSON.stringify({
       // Unique Timestamp
