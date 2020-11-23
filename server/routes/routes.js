@@ -17,7 +17,9 @@ router.get('/home', (req, res) => {
 
 router.get('/profile', blockUnauthenticated, userController.getProfile);
 router.get('/profile/edit', blockUnauthenticated, userController.getEditProfile);
+router.get('/profile/changePassword', blockUnauthenticated, userController.getChangePassword);
 router.patch('/profile/edit', blockUnauthenticated, userController.patchEditProfile);
+router.patch('/profile/changePassword', blockUnauthenticated, userController.patchChangePassword);
 
 router.get('/rockpaperscissor', blockUnauthenticated, gameController.rpsIndex);
 router.get('/gameHistory', blockUnauthenticated, gameController.gameHistory);
