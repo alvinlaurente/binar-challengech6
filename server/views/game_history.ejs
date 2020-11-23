@@ -27,7 +27,7 @@
               <img src="/images/rockpaperscissor/logo.png" width="40px" height="40px" class="" alt="logo">
             </div>
           </a>
-          <a href="">
+          <a href="#">
             <div class="d-inline-block mx-auto align-middle headerTitle">
               GAME HISTORY OF <%= username %>
             </div>
@@ -44,6 +44,7 @@
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Timestamps</th>
             <th scope="col">Player's Choice</th>
             <th scope="col">Comp's Choice</th>
             <th scope="col">Result</th>
@@ -51,18 +52,19 @@
           </tr>
         </thead>
         <tbody>
-          
+          <% for(let i=0; i<history.length; i++) { %>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= history[i]['timestamps'] %></td>
+            <td style="text-transform: capitalize;"><%= history[i]['player_choice'] %></td>
+            <td style="text-transform: capitalize;"><%= history[i]['comp_choice'] %></td>
+            <td style="text-transform: capitalize;"><%= history[i]['result'] %></td>
             <td>
               <form>
-                <button class="delete" data-time="">&#10060;</button>
+                <button class="delete" data-id="<%= history[i]['historyId'] %>">&#10060;</button>
               </form>
             </td>
           </tr>
-          
+          <% } %>
         </tbody>
       </table>
     </div>

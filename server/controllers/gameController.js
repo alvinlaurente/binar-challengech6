@@ -5,9 +5,20 @@ class gameController {
     res.render('rockpaperscissor', { title: 'Rock Paper Scissor', username: req.session.username });
   };
 
-  static gameHistory = (req, res) => {
-    res.render('game_history', { title: 'Game History', username: req.session.username });
-  }
+  static gameHistory = async (req, res) => {
+    try {
+      const history = await userGameHistories.findAll({
+        attributes: ['historyId', 'timestamps', 'player_choice', 'comp_choice', 'result'],
+        where: { userId: req.session.userId },
+        order: [['timestamps', 'ASC']],
+      })
+        .catch((e) => console.log(e));
+
+      return res.render('game_history', { title: 'Game History', username: req.session.username, history });
+    } catch {
+      return res.render('game_history', { title: 'Game History', username: req.session.username, history: '' });
+    }
+  };
 
   static rpsHistory = async (req, res) => {
     // TODO : Validate request!
