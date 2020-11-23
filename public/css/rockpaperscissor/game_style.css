@@ -32,7 +32,6 @@ body, html {
 }
 
 .gameContent .row div h3 {
-	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 20px;
 }

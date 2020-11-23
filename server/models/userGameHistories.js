@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       const { userGames } = models;
 
-      userGameHistories.belongsTo(userGames, { foreignKey: 'userID', as: 'userData' });
+      userGameHistories.belongsTo(userGames, { foreignKey: 'userId', as: 'userData' });
     }
   }
   userGameHistories.init({

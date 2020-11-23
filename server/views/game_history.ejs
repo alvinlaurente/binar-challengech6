@@ -27,9 +27,9 @@
               <img src="/images/rockpaperscissor/logo.png" width="40px" height="40px" class="" alt="logo">
             </div>
           </a>
-          <a href="#">
+          <a href="">
             <div class="d-inline-block mx-auto align-middle headerTitle">
-              Rock Paper Scissors History
+              GAME HISTORY OF <%= username %>
             </div>
           </a>
         </div>
@@ -51,18 +51,18 @@
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i<history.length; i++) { %>
+          
           <tr>
-            <td><%= history[i]['player choice'] %></td>
-            <td><%= history[i]['comp choice'] %></td>
-            <td><%= history[i]['result'] %></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>
               <form>
-                <button class="delete" data-time="<%= history[i]['time'] %>">&#10060;</button>
+                <button class="delete" data-time="">&#10060;</button>
               </form>
             </td>
           </tr>
-          <% } %>
+          
         </tbody>
       </table>
     </div>

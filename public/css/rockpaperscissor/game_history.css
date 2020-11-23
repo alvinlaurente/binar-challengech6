@@ -13,7 +13,6 @@ body, html {
 .customHeader a .headerTitle{
 	font-size: 16px;
 	font-weight: bold;
-	text-transform: uppercase;
 	color: #ffc107;
 }
 
