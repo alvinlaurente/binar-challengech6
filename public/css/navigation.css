@@ -1,0 +1,213 @@
+/* Navigation */
+.navigation {
+  background-color: black;
+  height: 30vh;
+  padding: 0;
+}
+
+.navigation a {
+  font-family: "Bebas Neue", cursive;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  margin: 0 2vw;
+  word-break: keep-all;
+}
+
+.navigation a span {
+  white-space: nowrap;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+.navigation a span:hover {
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+  color: #ffc107 !important;
+}
+
+.navigation .socialmedialogo {
+  width: 100% !important;
+}
+
+.navigation .socialmedialogo .icon path {
+  fill: white;
+  stroke-width: 0.5;
+  stroke: white;
+}
+
+.navigation .socialmedialogo .icon.facebook path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+
+.navigation .socialmedialogo .icon.facebook path:hover {
+  -webkit-animation: facebookicon 1s linear forwards;
+          animation: facebookicon 1s linear forwards;
+}
+
+@-webkit-keyframes facebookicon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 60;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+@keyframes facebookicon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 60;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+.navigation .socialmedialogo .icon.twitter path {
+  stroke-dasharray: 74;
+  stroke-dashoffset: 0;
+}
+
+.navigation .socialmedialogo .icon.twitter path:hover {
+  -webkit-animation: twittericon 1s linear forwards;
+          animation: twittericon 1s linear forwards;
+}
+
+@-webkit-keyframes twittericon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 74;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+@keyframes twittericon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 74;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+.navigation .socialmedialogo .icon.youtube path {
+  fill: #FF1313;
+  stroke: #FF1313;
+  stroke-dasharray: 77;
+  stroke-dashoffset: 0;
+}
+
+.navigation .socialmedialogo .icon.youtube path:hover {
+  -webkit-animation: youtubeicon 1s linear forwards;
+          animation: youtubeicon 1s linear forwards;
+}
+
+@-webkit-keyframes youtubeicon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 77;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+@keyframes youtubeicon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 77;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+.navigation .socialmedialogo .icon.twitch path {
+  stroke-dasharray: 70;
+  stroke-dashoffset: 0;
+}
+
+.navigation .socialmedialogo .icon.twitch path:hover {
+  -webkit-animation: twitchicon 1s linear forwards;
+          animation: twitchicon 1s linear forwards;
+}
+
+@-webkit-keyframes twitchicon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 70;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+@keyframes twitchicon {
+  0% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 70;
+    stroke: #ffc107;
+    fill: #ffc107;
+  }
+}
+
+.navigation hr {
+  border-top: 1px solid grey;
+}
+
+/* Footer */
+.footer p {
+  font-size: 14px;
+  color: grey;
+}
+
+.footer .col-lg-6 {
+  text-align: center;
+}
+
+.footer a {
+  margin: 0;
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .navigation {
+    height: 22vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .navigation {
+    height: 17vh;
+  }
+
+  .footer .col-lg-6 {
+    text-align: right !important;
+  }
+
+  .footer .col-lg-4 {
+    text-align: left;
+  }
+}

@@ -3,10 +3,6 @@
 
 <head>
   <%- include('./partials/head.ejs') %>
-  <link rel="stylesheet" href="/css/index/mobile_style.css" />
-  <link rel="stylesheet" href="/css/index/desktop_style.css" />
-  <link rel="stylesheet" href="/css/index/tablet_style.css" />
-  <link rel="stylesheet" href="/css/index/smphone_style.css" />
   <link rel="stylesheet" href="/css/profile.css" />
 </head>
 
@@ -73,7 +69,8 @@
                 <input type="text" class="form-control" id="status" name="status" placeholder="Status">
               </div>
             </div>
-            <button type="submit" class="btn btn-success editProfileSubmit" id="editProfileSubmit"><strong>SUBMIT</strong></button>
+            <button type="submit" class="btn btn-success editProfileSubmit"
+              id="editProfileSubmit"><strong>SUBMIT</strong></button>
           </form>
         </div>
       </div>
@@ -87,10 +84,8 @@
   <%- include('./partials/footer.ejs') %>
   <!-- End of Footer -->
   </div>
-</body>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<%- include('./partials/bootstrapScripts.ejs') %>
+  <%- include('./partials/bootstrapScripts.ejs') %>
+</body>
 
 </html>
