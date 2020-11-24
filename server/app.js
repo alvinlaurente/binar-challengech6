@@ -10,7 +10,9 @@ import authRoutes from './routes/authRoutes';
 const app = express();
 
 // Helmet
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 
 const port = process.env.PORT_NUM;
 

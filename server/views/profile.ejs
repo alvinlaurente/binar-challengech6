@@ -3,10 +3,6 @@
 
 <head>
   <%- include('./partials/head.ejs') %>
-  <link rel="stylesheet" href="/css/index/mobile_style.css" />
-  <link rel="stylesheet" href="/css/index/desktop_style.css" />
-  <link rel="stylesheet" href="/css/index/tablet_style.css" />
-  <link rel="stylesheet" href="/css/index/smphone_style.css" />
   <link rel="stylesheet" href="/css/profile.css" />
 </head>
 
@@ -60,10 +56,37 @@
                 PASSWORD</strong></button>
           </a>
 
-          <form action="/profile/deleteUser?_method=DELETE" method="POST" class="d-inline-block">
-            <button type="submit" class="btn btn-sm btn-danger deleteUser" id="deleteUser"><strong>DELETE ALL USER
-                DATA</strong></button>
-          </form>
+          <button type="button" class="btn btn-sm btn-danger deleteUser" id="deleteUser" data-toggle="modal"
+            data-target="#deleteConfirmation"><strong>DELETE ALL USER
+              DATA</strong></button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog"
+            aria-labelledby="deleteUserModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="deleteUserModal"><strong>Are you sure to delete all your
+                      data?</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  All data including your game histories will also be deleted. There is no turning back after you
+                  confirm the deletion.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                  <form action="/profile/deleteUser?_method=DELETE" method="POST" class="d-inline-block">
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Modal -->
+
         </div>
       </div>
     </div>
@@ -76,13 +99,8 @@
   <%- include('./partials/footer.ejs') %>
   <!-- End of Footer -->
   </div>
+
+  <%- include('./partials/bootstrapScripts.ejs') %>
 </body>
-
-<script>
-</script>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<%- include('./partials/bootstrapScripts.ejs') %>
 
 </html>
